@@ -7,15 +7,15 @@ package com.sunny.dao;
  * @Created by Happy-微冷的雨
  */
 
-import com.sunny.pojo.po.UserPo;
+import com.sunny.pojo.po.User;
 import com.sunny.util.MyMapper;
 
 /**
  * 用户DAO接口：base提炼
  */
-public interface UserMapper extends MyMapper<UserPo> {
+public interface UserMapper extends MyMapper<User> {
    //根据主键查询单个对象
     //查看详情
    //根据用户名获取用户实体
-   UserPo findUserByUserName(String userName);
+   User findUserByUserName(String userName);
 }

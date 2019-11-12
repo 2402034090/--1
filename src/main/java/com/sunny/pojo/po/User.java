@@ -16,7 +16,7 @@ import java.util.Date;
 /**
  * 和DB对接，是字段数量最多的一个实体类
  */
-public class UserPo {
+public class User {
     /**
      * 主键：在模型中找一个和DB的主键列对应的属性
      */
@@ -119,7 +119,7 @@ public class UserPo {
     @Column(name = "store_id")
     private Long storeId;
 
-    public UserPo(Long id, String userName, String userPassword, String passProblem, String passAnswer, String userNick, String userAvatar, String userEmail, String userSex, String userPhone, Date userBirthday, String lastLoginIp, Long operator, Date createTime, Date updateTime, Integer deleteStatus, Long storeId) {
+    public User(Long id, String userName, String userPassword, String passProblem, String passAnswer, String userNick, String userAvatar, String userEmail, String userSex, String userPhone, Date userBirthday, String lastLoginIp, Long operator, Date createTime, Date updateTime, Integer deleteStatus, Long storeId) {
         this.id = id;
         this.userName = userName;
         this.userPassword = userPassword;
@@ -139,7 +139,7 @@ public class UserPo {
         this.storeId = storeId;
     }
 
-    public UserPo() {
+    public User() {
         super();
     }
 
