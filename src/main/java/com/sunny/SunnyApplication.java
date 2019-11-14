@@ -19,6 +19,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  */
 @SpringBootApplication
 @MapperScan(basePackages = {"com.sunny.dao"})
+//开启事务注解
 @EnableTransactionManagement
 public class SunnyApplication {
     public static void main(String[] args) {

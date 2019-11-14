@@ -7,14 +7,15 @@ import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
-
+@ConfigurationProperties("jwt.config")
 public class JWTUtil {
-
     private String key ;
-
     private long ttl ;//一个小时
 
     public String getKey() {
@@ -102,7 +103,7 @@ public class JWTUtil {
      *
      * @param username 用户名
      * @param secret   用户的密码
-     * @return 加密的token
+     * @return 生成token
      */
     public  String sign(Long userId, String username, String secret, Long storeId) {
         try {
@@ -113,7 +114,7 @@ public class JWTUtil {
                     .withClaim("userId", userId)
                     .withClaim("username", username)
                     .withClaim("storeId", storeId)
-                    .withIssuer(key)
+                    .withIssuer(key) //盐值
                     .withExpiresAt(date)
                     .sign(algorithm);
         } catch (UnsupportedEncodingException e) {

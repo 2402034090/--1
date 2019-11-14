@@ -44,13 +44,10 @@
         </constructor>
     </resultMap>
 
-
     <!--正统sql-->
     <select id="findUserByUserName" resultMap="BaseResultMap">
         select *
         from user
         WHERE user.user_name = #{userName}
     </select>
-
-
 </mapper>

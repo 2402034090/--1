@@ -3,6 +3,7 @@ package com.sunny.controller;
 import com.sunny.common.ServerResponse;
 import com.sunny.pojo.bo.IdAndNameBo;
 import com.sunny.pojo.dto.UserDto;
+import com.sunny.pojo.po.User;
 import com.sunny.pojo.vo.UserVo;
 import com.sunny.service.UserService;
 import com.sunny.shiro.JWTUtil;
@@ -14,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -33,7 +35,7 @@ public class UserController {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     //植入Service对象
-    @Autowired
+    @Autowired  //null  默认类型
     private UserService userService;
 
     //植入jwtUtil工具类
@@ -41,9 +43,9 @@ public class UserController {
     private JWTUtil jwtUtil;
 
     @PostMapping("/user/login")
-    @ApiOperation(value = "用户登陆")
-    public ServerResponse<UserVo> loginUser(String userName, String userPassword) {
-        return userService.loginUser(userName, userPassword, "");
+    /*@ApiOperation(value = "用户登陆")*/
+    public ServerResponse<UserVo> loginUser(@RequestBody User user) {
+        return userService.loginUser(user);
     }
 
     @PostMapping("/user/employee")

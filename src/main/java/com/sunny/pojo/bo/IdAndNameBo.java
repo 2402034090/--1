@@ -9,6 +9,7 @@ import lombok.Data;
 */
 @Data
 public class IdAndNameBo {
+	//基本类型不要用，要用包装类型 ，因为包装类型可以赋值为null
 	private Long id;
 	private String name;
 	public IdAndNameBo(){

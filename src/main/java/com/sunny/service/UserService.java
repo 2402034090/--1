@@ -11,6 +11,7 @@ import com.sunny.common.ServerResponse;
 import com.sunny.pojo.bo.IdAndNameBo;
 import com.sunny.pojo.dto.UserDto;
 import com.sunny.pojo.po.User;
+import com.sunny.pojo.vo.UserVo;
 
 /**
  * 用户service接口层
@@ -27,11 +28,11 @@ public interface UserService {
      * @param ip        ip地址
      * @return
      */
-    ServerResponse loginUser(String userName, String password, String ip);
+    ServerResponse loginUser(User vo);
 
     /**
      * 03.添加员工
-     * @param userDto  用户对象
+     * @param userDto  用户对象  addXXX()
      * @return
      */
     ServerResponse<IdAndNameBo> addEmployee(UserDto userDto);

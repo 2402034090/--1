@@ -20,7 +20,7 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 ####################################
-#生存时间 配置
+#生存时间 配置 自定义节点配置
 jwt:
   config:
     key: sunny
